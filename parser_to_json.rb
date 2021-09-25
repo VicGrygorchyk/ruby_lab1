@@ -6,9 +6,10 @@ class ParserToJson
 
     def initialize(web_site_url)
         @html = open(web_site_url)
-        @web_site_url = web_site_url
+        @html_document = Nokogiri::HTML(@html)
     end
 
-    attr_accessor :web_site_url
+    attr_reader :html_document
+
 
 end

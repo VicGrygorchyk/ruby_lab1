@@ -17,7 +17,7 @@ def main()
     job_list = JobsLists.new(agent)
     job_list.goto_vacancies
 
-    puts agent.browser_agent.current_page.uri
+    parser = ParserToJson.new(agent.browser_agent.current_page.uri)
 end
 
 main()
