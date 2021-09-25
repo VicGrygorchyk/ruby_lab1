@@ -25,5 +25,12 @@ class BrowserAgent
         @latest_opened_page = link.click
     end
 
+    def get_form(form_css)
+        form = @latest_opened_page.form_with(css: form_css)
+        form
+    end
 
+    def submit_form(form)
+        @latest_opened_page = form.submit
+    end
 end
