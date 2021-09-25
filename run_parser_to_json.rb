@@ -11,7 +11,7 @@ require_relative "web_pages/login_page.rb"
 def main()
     agent = BrowserAgent.new
     login_page = LoginPage.new(agent)
-    login_page.login_to_site('https://djinni.co/')
+    login_page.login_to_site(website_url='https://djinni.co/', email='vvgrygorchuk@gmail.com', password='Random88_dji')
 end
 
 main()
