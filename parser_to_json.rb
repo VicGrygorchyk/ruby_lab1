@@ -61,7 +61,7 @@ class ParserToJson
             # get info about experience, seniority level and where to work fron 'nobr' tag
             info = details.css('nobr').each do |element|
                 if (element.to_s =~ /Office|Remote/)
-                    where_to_work = element.text.strip.gsub(/^[\s\n\r]*/, '')
+                    where_to_work = element.text.strip.gsub(/^\s+|\n*/, '')
                 end
                 if (element.to_s =~ /досвід|опыт|experience/)
                     experience = element.text.strip.gsub(/^·\s/, '')
