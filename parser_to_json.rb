@@ -6,7 +6,7 @@ require 'json'
 
 class ParserToJson
 
-    def parse_jobs_items(web_site_url)
+    def parse_html_by_url(web_site_url)
         # find all jobs on the page
         html = open(web_site_url)
         html_document = Nokogiri::HTML(html)
@@ -89,7 +89,7 @@ class ParserToJson
         JSON.pretty_generate(jobs_hash)
     end
 
-    def save_parsed_jsobs_to_json(jobs_hash, file_path)
+    def save_to_json(jobs_hash, file_path)
         # save the pretty json with parsed jobs to the file
 
         pretty_json = make_pretty_json(jobs_hash)

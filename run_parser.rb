@@ -1,7 +1,7 @@
 # encoding utf-8
 
 =begin
-This programm parses a web page and saves it to json
+This programm parses a web page and saves it to json and csv
 =end
 require_relative "parser_to_json.rb"
 require_relative "browser_agent.rb"
@@ -19,8 +19,8 @@ def main()
     job_list.goto_vacancies
 
     parser = ParserToJson.new
-    jobs = parser.parse_jobs_items(agent.get_current_page_uri)
-    parser.save_parsed_jsobs_to_json(jobs, file_path)
+    jobs = parser.parse_html_by_url(agent.get_current_page_uri)
+    parser.save_to_json(jobs, file_path)
 end
 
 main()
