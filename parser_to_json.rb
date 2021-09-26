@@ -4,9 +4,9 @@ require 'open-uri'
 require 'nokogiri'
 require 'json'
 
-class ParserToJson
+module ParserToJson
 
-    def parse_html_by_url(web_site_url)
+    def ParserToJson.parse_html_by_url(web_site_url)
         # find all jobs on the page
         html = open(web_site_url)
         html_document = Nokogiri::HTML(html)
@@ -85,14 +85,14 @@ class ParserToJson
         jobs_items
     end
 
-    def make_pretty_json(jobs_hash)
+    def ParserToJson.make_pretty_json(jobs_hash)
         JSON.pretty_generate(jobs_hash)
     end
 
-    def save_to_json(jobs_hash, file_path)
+    def ParserToJson.save_to_json(file_path, jobs_hash)
         # save the pretty json with parsed jobs to the file
 
-        pretty_json = make_pretty_json(jobs_hash)
+        pretty_json = ParserToJson.make_pretty_json(jobs_hash)
         File.open(file_path, "w+") do |json_file|
             json_file.write(pretty_json)
          end
