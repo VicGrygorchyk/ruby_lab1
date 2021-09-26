@@ -13,7 +13,7 @@ def main()
     file_path = './jobs.json'
     agent = BrowserAgent.new
     login_page = LoginPage.new(agent)
-    # login_page.login_to_site(website_url='https://djinni.co/', email='vvgrygorchuk@gmail.com', password='Random88_dji')
+    login_page.login_to_site(website_url='https://djinni.co/', email='hryhorchuk.viktor@chnu.edu.ua', password='R@ndom12345')
 
     job_list = JobsLists.new(agent)
     job_list.goto_vacancies
