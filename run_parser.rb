@@ -3,7 +3,7 @@
 =begin
 This programm parses a web page and saves it to json and csv
 =end
-require_relative "helpers/csv_converter.rb"
+require_relative "helpers/csv_manager.rb"
 require_relative "helpers/parser_to_json.rb"
 require_relative "helpers/browser_agent.rb"
 require_relative "web_pages/login_page.rb"
@@ -25,7 +25,7 @@ def main()
     # save to json
     ParserToJson.save_to_json(json_file_path, jobs)
     # save to csv
-    CSVConverter.convert_to_csv(csv_file_path, jobs)
+    CSVManager.save_to_csv(csv_file_path, jobs)
 end
 
 main()

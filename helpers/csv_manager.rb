@@ -4,9 +4,9 @@ This script opens a json file and convers it to csv file
 =end
 require "csv"
 
-module CSVConverter
+module CSVManager
 
-    def CSVConverter.convert_to_csv(path_to_csv, array)
+    def CSVManager.save_to_csv(path_to_csv, array)
         # open a csv file and write an array of hash elements to it
         # use the hash keys as a csv headers
         
