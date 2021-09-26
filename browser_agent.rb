@@ -18,6 +18,10 @@ class BrowserAgent
         @latest_opened_page
     end
 
+    def get_current_page_uri()
+        @browser_agent.current_page.uri
+    end
+
     def open_url(url)
         @latest_opened_page = @browser_agent.get(url)
     end
