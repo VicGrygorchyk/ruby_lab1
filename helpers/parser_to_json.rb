@@ -16,7 +16,7 @@ module ParserToJson
             text_date = job_item.at_css('.text-date').text.strip  # convert to date time
             text_date.sub!(/today|сегодня|сьогодні/, Date.today.to_s)
             text_date.sub!(/yesterday|вчера|вчора/, (Date.today - 1).to_s)
-            puts text_date
+            # puts text_date
 
             title_element = job_item.at_css('.list-jobs__title')  # save href and if salary - $
             begin
@@ -38,12 +38,12 @@ module ParserToJson
             rescue NoMethodError
                 salary = 'no salary'
             end
-            puts job_title
-            puts link
-            puts salary
+            # puts job_title
+            # puts link
+            # puts salary
 
             descr = job_item.at_css('.list-jobs__description p').to_s.gsub(/<p>|<\/p>/, '')
-            puts descr
+            # puts descr
 
             details = job_item.at_css('.list-jobs__details') # get location, experience, level
             begin
@@ -66,10 +66,10 @@ module ParserToJson
                     level = element.text.strip.gsub(/^·\s/, '')
                 end
             end
-            puts location
-            puts where_to_work
-            puts experience
-            puts level
+            # puts location
+            # puts where_to_work
+            # puts experience
+            # puts level
 
             jobs_items.push(
               posting_date: text_date,
