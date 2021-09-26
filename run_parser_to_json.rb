@@ -18,8 +18,8 @@ def main()
     job_list = JobsLists.new(agent)
     job_list.goto_vacancies
 
-    parser = ParserToJson.new(agent.get_current_page_uri)
-    jobs = parser.parse_jobs_items
+    parser = ParserToJson.new
+    jobs = parser.parse_jobs_items(agent.get_current_page_uri)
     parser.save_parsed_jsobs_to_json(jobs, file_path)
 end
 

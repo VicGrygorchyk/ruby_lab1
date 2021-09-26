@@ -6,17 +6,13 @@ require 'json'
 
 class ParserToJson
 
-    def initialize(web_site_url)
-        @html = open(web_site_url)
-        @html_document = Nokogiri::HTML(@html)
-    end
-
-    attr_reader :html_document
-
-    def parse_jobs_items()
+    def parse_jobs_items(web_site_url)
         # find all jobs on the page
+        html = open(web_site_url)
+        html_document = Nokogiri::HTML(html)
+
         jobs_items = []
-        @html_document.css('.list-jobs__item').each do |job_item|
+        html_document.css('.list-jobs__item').each do |job_item|
             text_date = job_item.at_css('.text-date').text.strip  # convert to date time
             text_date.sub!(/today|сегодня|сьогодні/, Date.today.to_s)
             text_date.sub!(/yesterday|вчера|вчора/, (Date.today - 1).to_s)
