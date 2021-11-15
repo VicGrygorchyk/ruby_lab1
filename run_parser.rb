@@ -16,7 +16,7 @@ def main()
     agent = BrowserAgent.new
     # login
     login_page = LoginPage.new(agent)
-    login_page.login_to_site(website_url='https://djinni.co/', email='hryhorchuk.viktor@chnu.edu.ua', password='R@ndom12345')
+    login_page.login_to_site(website_url='https://djinni.co/', email=ENV["EMAIL"], password=ENV["PASSWORD"])
     # find a web page with vacancies
     job_list = JobsLists.new(agent)
     job_list.goto_vacancies
